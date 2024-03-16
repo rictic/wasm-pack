@@ -1,10 +1,12 @@
 # nodejs
 
-Currently, `wasm-pack` generated npm modules require us to you have [fetch] polyfill in your node project.
+Currently, the npm modules that `wasm-pack` generates must have the [fetch] polyfill as a dependency.
 
-If there is a module from `wasm-pack build --target nodejs` you may encounter some errors regarding global `Headers`, `Request`, `Response` and `fetch` Web APIs.
+If you encounter errors regarding global `Headers`, `Request`, `Response` and `fetch` Web APIs not being defined in a module built with `wasm-pack build --target nodejs` you may need to make changes so that these values are defined.
 
 ## Common errors:
+
+Examples of this category of error:
 
 ```js
 ReqwestError(reqwest::Error { kind: Builder, source: "JsValue(ReferenceError: Headers is not defined
